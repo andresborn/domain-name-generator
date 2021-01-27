@@ -1,7 +1,9 @@
-let pronoun = ['the', 'our', "his", "theirs", "my", "your", "her","their",]
-let adj = ["ugliest", "ugly", "uptight", "victorious", "vivacious", "wandering", "wicked", "wild",]
-let noun = ["Belgium","Candle","Sandwich","Juice","Caravan","Kangaroo","King","Shampoo",]
+let pronoun = ['the', 'our', "his", "my", "your", "her",]
+let adj = ["ugliest", "victorious", "vivacious", "wandering",]
+let noun = ["Sandwich","Juice","Caravan","Kangaroo","King","Shampoo",]
 let end = [".COM",".cat",".net",".coop",".edu",".gov",".name",".tel",]
+
+const container = document.getElementById('container')
 
 const createUrls = (arr1, arr2, arr3, arr4) => {
 	let urlArray = [];
@@ -17,4 +19,11 @@ const createUrls = (arr1, arr2, arr3, arr4) => {
 	})
 	return urlArray
 }
-console.log(createUrls(pronoun, adj, noun, end))
+
+const arrayOfURL = createUrls(pronoun, adj, noun, end)
+
+arrayOfURL.forEach((url) => {
+	const p = document.createElement("p")
+	p.textContent = url
+	container.appendChild(p)
+})
